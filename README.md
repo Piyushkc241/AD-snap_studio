@@ -2,7 +2,6 @@
 
 AdSnap Studio is a Streamlit web app for creating professional product ads with AI. It connects to [Bria AI](https://bria.ai)'s image APIs, so you can go from a text prompt or a plain product photo to ad-ready visuals in a few clicks.
 
-![AdSnap Studio screenshot](screenshot.png)
 
 ## 🌟 Features
 
