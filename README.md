@@ -1,23 +1,29 @@
 # 🎨 AdSnap Studio
 
-A powerful Streamlit app for generating professional product ads using Bria AI's advanced image generation and manipulation APIs.
+AdSnap Studio is a Streamlit web app for creating professional product ads with AI. It connects to [Bria AI](https://bria.ai)'s image APIs, so you can go from a text prompt or a plain product photo to ad-ready visuals in a few clicks.
+
+![AdSnap Studio screenshot](screenshot.png)
 
 ## 🌟 Features
 
-- 🖼️ Generate HD product images from text prompts
-- 🎯 Remove backgrounds with custom colors
-- 🌅 Add realistic shadows
-- 🏠 Create lifestyle shots with text or reference images
-- ✨ AI-powered prompt enhancement
-- 📝 Optional CTA text overlay
-- 🎮 Intuitive UI controls
-- 💾 Easy image download
+- 🖼️ **Text-to-image:** generate HD product images with custom aspect ratio (1:1, 16:9, 9:16, 4:3, 3:4), style and 1–4 results
+- ✨ **Prompt enhancement:** let AI improve your prompt before generating
+- 🎯 **Packshots:** remove backgrounds and set a custom background color
+- 🌅 **Shadows:** add realistic shadows with adjustable intensity, blur and offset
+- 🏠 **Lifestyle shots:** place your product in a scene from a text description or a reference image
+- 🎨 **Generative fill:** draw a mask on an image and fill it with AI-generated content
+- 🧹 **Erase elements:** remove objects or the foreground
+- 💾 **Download** any result
+
+## 🛠️ Tech Stack
+
+Python · Streamlit · Bria AI API · Pillow · Requests
 
 ## 🚀 Quick Start
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/adsnap-studio.git
+git clone https://github.com/Piyushkc241/adsnap-studio.git
 cd adsnap-studio
 ```
 
@@ -26,37 +32,35 @@ cd adsnap-studio
 pip install -r requirements.txt
 ```
 
-3. Create a `.env` file in the root directory:
-```bash
+3. Get an API key from [Bria AI](https://bria.ai) and create a `.env` file in the root directory (see `.env.example`):
+```
 BRIA_API_KEY=your_api_key_here
 ```
 
 4. Run the app:
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 ## 💡 Usage
 
-1. Enter a product description or upload an image
-2. Configure generation options in the sidebar:
-   - Enhance prompt with AI
-   - Remove background
-   - Add shadows
-   - Generate lifestyle shots
-3. Adjust advanced settings like background color and shadow intensity
-4. Click "Generate Ad" to create your images
-5. Download the results
+The app has four tabs:
 
-## 🔧 Configuration
+| Tab | What it does |
+|-----|--------------|
+| **Generate Image** | Enter a prompt (optionally enhance it), choose aspect ratio and style, and generate images |
+| **Product Photography** | Upload a product photo, then create a packshot, add a shadow, or generate a lifestyle shot |
+| **Generative Fill** | Upload an image, draw a mask, and describe what should appear there |
+| **Erase Elements** | Upload an image and remove unwanted elements |
 
-The app supports various configuration options through the UI:
+## 📁 Project Structure
 
-- **Prompt Enhancement**: Improve your text prompts with AI
-- **Background Removal**: Remove backgrounds with custom colors
-- **Shadow Effects**: Add realistic shadows with adjustable intensity
-- **Lifestyle Shots**: Place products in context using text or reference images
-- **CTA Text**: Add optional call-to-action text overlays
+```
+app.py          # Streamlit UI and tabs
+services/       # One module per Bria API (generation, shadow, packshot, lifestyle, fill, erase)
+workflows/      # Chained ad-generation pipeline
+components/     # Reusable UI pieces (sidebar, uploader, preview)
+```
 
 ## 🤝 Contributing
 
@@ -68,9 +72,9 @@ The app supports various configuration options through the UI:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- [Bria AI](https://bria.ai) for their powerful image generation APIs
-- [Streamlit](https://streamlit.io) for the amazing web framework 
+- [Bria AI](https://bria.ai) for the image generation APIs
+- [Streamlit](https://streamlit.io) for the web framework
